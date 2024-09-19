@@ -29,15 +29,17 @@ const client = new Client({
 });
 
 
-// client.connect(err => {
-//   if (err) {
-//     console.error('Connection error', err.stack);
-//     process.exit(1); // Exit the process with an error code
-//   } else {
-//     console.log('Connected to the database');
-//     afterConnection();
-//   }
-// });
+// Connect to the database with error handling
+const connectToDatabase = async () => {
+  try {
+    await client.connect();
+    console.log('Connected to the database');
+    afterConnection();
+  } catch (err) {
+    console.error('Database connection error:', err.stack);
+    process.exit(1); // Exit the process with an error code
+  }
+};
 
 
 // Main menu prompt
