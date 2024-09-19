@@ -71,6 +71,7 @@ const promptUser = async () => {
 } catch (err) {
   console.error('Error processing user input:', err);
 }
+};
 
 
 // Function after connection is established and welcome message is shown
