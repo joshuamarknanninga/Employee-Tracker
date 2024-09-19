@@ -64,25 +64,21 @@ const promptUser = async () => {
         'Delete an employee',
         'View department budgets',
         'Exit',
-    ]
-  }]);
+      ],
+    },
+  ]);
 
-  await handleUserAction(action);
-} catch (err) {
-  console.error('Error processing user input:', err);
-}
-};
 
 
 // Function after connection is established and welcome message is shown
-const afterConnection = () => {
-  console.log("***********************************")
-  console.log("*                                 *")
-  console.log("*        EMPLOYEE MANAGER         *")
-  console.log("*                                 *")
-  console.log("***********************************")
+function afterConnection() {
+  console.log("***********************************");
+  console.log("*                                 *");
+  console.log("*        EMPLOYEE MANAGER         *");
+  console.log("*                                 *");
+  console.log("***********************************");
   promptUser();
-};
+}
 const handleUserAction = async (action) => {
   try {
   switch (action) {
@@ -131,12 +127,12 @@ const handleUserAction = async (action) => {
       break;
     default:
       console.log('Invalid action');
+    }
+    await promptUser(); // Re-prompt after action completion
+  } catch (err) {
+    console.error('Error handling user action:', err);
   }
-  await promptUser(); // Re-prompt after action completion
-} catch (err) {
-  console.error('Error handling user action:', err);
-}
 };
 
 // Connect to the database and start the application
-connectToDatabase();
+connectToDatabase();}
