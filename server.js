@@ -68,7 +68,10 @@ const promptUser = async () => {
   }]);
 
   await handleUserAction(action);
-};
+} catch (err) {
+  console.error('Error processing user input:', err);
+}
+
 
 // Function after connection is established and welcome message is shown
 const afterConnection = () => {
@@ -80,6 +83,7 @@ const afterConnection = () => {
   promptUser();
 };
 const handleUserAction = async (action) => {
+  try {
   switch (action) {
     case 'View all departments':
       await showDepartments(client);
@@ -127,13 +131,11 @@ const handleUserAction = async (action) => {
     default:
       console.log('Invalid action');
   }
- // Show the main menu again unless exiting
- if (action !== 'Exit') {
-  promptUser();
+  await promptUser(); // Re-prompt after action completion
+} catch (err) {
+  console.error('Error handling user action:', err);
 }
 };
 
 // Connect to the database and start the application
-client.connect()
-.then(afterConnection)
-.catch(err => console.error('Connection error', err.stack));
+connectToDatabase();
