@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 12 SQL: Employee Tracker
 
 ## Your Task
@@ -182,3 +183,7 @@ You are required to submit BOTH of the following for review:
 
 ---
 © 2024 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+=======
+# Employee-Tracker
+This is an app that tracks employees.
+>>>>>>> 27e695f5dec5c029f050460acea204ed46dedf62
