@@ -1,7 +1,7 @@
 // Import dependencies
 const { Client } = require('pg');
 const inquirer = require('inquirer');
-const cTable = require('console.table'); // Uncommented to display table data
+const cTable = require('console.table'); // For displaying table data
 require('dotenv').config();
 const { 
   showDepartments, 
@@ -40,6 +40,16 @@ const connectToDatabase = async () => {
   }
 };
 
+// Function after connection is established and welcome message is shown
+function afterConnection() {
+  console.log("***********************************");
+  console.log("*                                 *");
+  console.log("*        EMPLOYEE MANAGER         *");
+  console.log("*                                 *");
+  console.log("***********************************");
+  promptUser();
+}
+
 // Main menu prompt
 const promptUser = async () => {
   try {
@@ -73,16 +83,7 @@ const promptUser = async () => {
   }
 };
 
-// Function after connection is established and welcome message is shown
-function afterConnection() {
-  console.log("***********************************");
-  console.log("*                                 *");
-  console.log("*        EMPLOYEE MANAGER         *");
-  console.log("*                                 *");
-  console.log("***********************************");
-  promptUser();
-}
-
+// Handle user actions based on their selection
 const handleUserAction = async (action) => {
   try {
     switch (action) {
