@@ -1,3 +1,5 @@
+// server.js
+
 // Import dependencies
 const { Client } = require('pg');
 const inquirer = require('inquirer');
